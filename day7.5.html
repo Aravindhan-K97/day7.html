@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>TASK5
+    </title>
+</head>
+
+<body>
+    <script>
+        //Print the country that uses US dollars as currency.
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://restcountries.com/v3.1/all", 'true');
+        xhr.send();
+        xhr.onload = function () {
+            let data = JSON.parse(this.response);
+            let currency = data.filter((a) => {
+                for (let key in a.currencies) {
+                    if (a.currencies[key].name === "United States dollar") {
+                        return a;
+                    }
+                }
+            });
+            console.log(currency);
+        };
+    </script>
+</body>
+
+</html>
