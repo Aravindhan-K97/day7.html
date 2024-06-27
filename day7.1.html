@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>TASK1
+    </title>
+</head>
+
+<body>
+    <script>
+        //Get all the countries from Asia continent /region using Filter method
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://restcountries.com/v3.1/all", 'true');
+        xhr.send();
+        xhr.onload = function () {
+            let Data = JSON.parse(xhr.responseText);
+            let asia = Data.filter((asiacoun) => {
+                if (asiacoun.region === 'Asia') {
+                    return asiacoun.name;
+                }
+            })
+            console.log(asia);
+        }
+    </script>
+</body>
+
+</html>
